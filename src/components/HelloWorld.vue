@@ -1,50 +1,29 @@
-<script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
-</script>
-
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
+  <div>
+    <h1 class="text-center">Ваші дані</h1>
+    <p>Спеціальність: 121 ІПЗ</p>
+    <p>Курс: 2 курс магістр</p>
+    <p>Група: 8.1213</p>
+    
+    <Button label="Натисни мене" color="blue" size="medium" icon="add" @click="handleClick" />
+    
+    <SearchableDropdown :items="['Item 1', 'Item 2', 'Item 3']" @select="handleSelect" />
   </div>
-
-  <p>
-    <strong>Спеціальність:</strong> 121 ІПЗ<br />
-    <strong>Курс:</strong> 2 курс магістр<br />
-    <strong>Група:</strong> 8.1213<br />
-    <strong>ПІБ:</strong> Смотрицька Олександра Романівна
-  </p>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a
-      href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support"
-      target="_blank"
-      >Vue Docs Scaling up Guide</a
-    >.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
 
+<script setup>
+import Button from './Button.vue';
+import SearchableDropdown from './SearchableDropdown.vue';
+
+const handleClick = () => {
+  alert('Кнопка натиснута!');
+};
+
+const handleSelect = (item) => {
+  alert(`Ви вибрали: ${item}`);
+};
+</script>
+
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
+/* Додайте стилі, якщо потрібно */
 </style>
